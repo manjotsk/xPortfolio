@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { Route, Redirect, BrowserRouter, Switch } from "react-router-dom";
+import MainRouter from './modules/MainRouter';
+import Header from "./components/Header";
+import Main from './components/Main';
+import Home from "./components/Home";
 
 class App extends Component {
   constructor(props){
@@ -12,34 +17,12 @@ class App extends Component {
   }
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-        <p> we need {this.state.superhero} </p>
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React {this.props.title}</h1>
-        </header>
-        {/* <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p> */}
-        <p className="App-intro">
-    
-        {this.props.name?
-          "your name is "+this.props.name:''}
-        </p>
-        <p> we need {this.state.superhero} </p>
-        <p> we need {this.state.superhero} </p>
-        <p> we need {this.state.superhero} </p>
-
-        <button onClick={
-          ()=>{
-            this.setState({
-              previousSuperhero:this.state.superhero,
-              superhero:this.state.previousSuperhero
-            })
-          }
-        }>Change my hero
-        </button>
-      </div>
+    <BrowserRouter>
+      <Switch>
+          <Route exact path='/' component={Home}></Route>
+          <Route exact path='/Header' component={Header}></Route>
+      </Switch>
+    </BrowserRouter>
     );
   }
 }

@@ -1,0 +1,8 @@
+div.backGround {
+    background-image: url("../logoq.png"); 
+    background-repeat: no-repeat;
+    color: #ff0000;
+    text-decoration: none;
+    background-position: center;
+    height: 100vh
+}
